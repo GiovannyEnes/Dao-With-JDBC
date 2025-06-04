@@ -5,6 +5,7 @@ import com.giovannyenes.dao.SellerDao;
 import com.giovannyenes.entities.Department;
 import com.giovannyenes.entities.Seller;
 
+import java.util.Date;
 import java.util.List;
 
 public class Program {
@@ -28,6 +29,11 @@ public class Program {
         for(Seller obj : sellerList){
             System.out.println(obj);
         }
+
+        System.out.println("=== Test 4: seller Insert ===");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000, department);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! New id: " + newSeller.getId());
 
 
 
