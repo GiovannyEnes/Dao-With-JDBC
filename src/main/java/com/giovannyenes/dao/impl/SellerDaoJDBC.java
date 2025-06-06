@@ -21,7 +21,7 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
 
-    @Override
+
     public void insert(Seller obj) {
         PreparedStatement st = null;
 
@@ -60,7 +60,7 @@ public class SellerDaoJDBC implements SellerDao {
         }
     }
 
-    @Override
+
     public void update(Seller obj) {
 
         PreparedStatement st = null;
@@ -89,16 +89,16 @@ public class SellerDaoJDBC implements SellerDao {
 
     }
 
-    @Override
+
     public void deleteById(Integer id) {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement("DELETE FROM seller WHERE id = ?");
 
             st.setInt(1, id);
-            st.executeUpdate();
 
             int rowsAffected = st.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
             if(rowsAffected == 0){
                 throw new DbException("Value incorrect!, there ins't Id");
             }
@@ -112,7 +112,7 @@ public class SellerDaoJDBC implements SellerDao {
 
     }
 
-    @Override
+
     public Seller findById(Integer id) {
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -162,7 +162,7 @@ public class SellerDaoJDBC implements SellerDao {
         return dep;
     }
 
-    @Override
+
     public List<Seller> findAll() {
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -201,7 +201,7 @@ public class SellerDaoJDBC implements SellerDao {
         }
     }
 
-    @Override
+
     public List<Seller> findByDepartment(Department department) {
         PreparedStatement st = null;
         ResultSet rs = null;
